@@ -4,14 +4,12 @@ import { Route, Switch, Redirect } from 'react-router-dom'
 import './App.css'
 
 import NavBar from './components/NavBar'
-import Footer from './components/Footer'
 
 import NoteFinder from './components/note-finder'
 import TextPractice from './components/text-practice'
 
 import home from "./components/home"
 
-// Add routes for your new pages here.
 class App extends Component {
     render() {
         return (
@@ -23,7 +21,6 @@ class App extends Component {
                     <Route path = "/note-finder" component={ NoteFinder } />
                     <Route path = "/text-practice" component={ TextPractice } />
                 </Switch>
-                <Footer />
             </>
         )
     }
