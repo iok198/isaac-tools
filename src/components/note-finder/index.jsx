@@ -55,7 +55,7 @@ export default function Blank() {
                 audio.src = `/api/clip?videoID=${videoID}&start=${startTime}&end=${endTime}`;
                 audio.play();
             }}>Review Clip</button>
-            <button class="btn btn-success mb-3" onClick={async () => {
+            <button class="btn btn-success mb-3 ml-2" onClick={async () => {
                 const audio = new Audio();
                 audio.src = `/api/clip?videoID=${videoID}&start=${startTime}&end=${endTime}`;
                 audio.load();
