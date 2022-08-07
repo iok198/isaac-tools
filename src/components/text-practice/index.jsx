@@ -45,11 +45,12 @@ export default function Blank() {
     const [filter, setFilter] = useState("");
     const [components, setComponents] = useState([]);
     const [replacedText, setReplacedText] = useState("");
+    const [isTextShown, setIsTextShown] = useState(true);
 
     return (
         <div className="mx-3">
             <h1>Japanese Text Practice</h1>
-            <input type="text" className="form-control mb-3" onChange={(e) => setText(e.target.value)}/>
+            <input type="text" className={`form-control mb-3 ${isTextShown ? "" : styles.spoiler}`} onChange={(e) => setText(e.target.value)} onFocus={() => { setIsTextShown(true) }} onBlur={() => { setIsTextShown(false) }}/>
             <button className="btn btn-primary mb-3" onClick={async () => {
                 const resp = await fetch("https://kotu.io/api/dictionary/parse", {
                     method: "POST",
@@ -61,6 +62,7 @@ export default function Blank() {
                 console.log("Main called");
                 setComponents(components);
                 setFilter("kanji");
+                setIsTextShown(false);
             }}>Kanji Practice</button>
             <button className="btn btn-success mb-3 ml-2" onClick={async () => {
                 const resp = await fetch("https://kotu.io/api/dictionary/parse", {
@@ -73,6 +75,7 @@ export default function Blank() {
 
                 setComponents(components);
                 setFilter("particle");
+                setIsTextShown(false);
             }}>Particle Practice</button>
             <TextPractice 
                 components={ components }
