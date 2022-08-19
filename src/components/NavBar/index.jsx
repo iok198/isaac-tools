@@ -24,6 +24,9 @@ export default function NavBar() {
           <Link className="nav-item nav-link active" to="text-practice">
             text practice
           </Link>
+          <Link className="nav-item nav-link active" to="sentence-collector">
+            sentence collector
+          </Link>
         </div>
       </nav>
     </>

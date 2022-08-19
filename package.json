@@ -38,6 +38,7 @@
   },
   "dependencies": {
     "@rharel/music-note-utils": "^1.0.1",
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "bootstrap": "^4.3.1",
     "classnames": "^2.2.6",
@@ -46,11 +47,14 @@
     "express": "^4.17.1",
     "fluent-ffmpeg": "^2.1.2",
     "fs-extra": "8.1.0",
+    "jsonwebtoken": "^8.5.1",
     "morgan": "^1.9.1",
+    "pg": "^8.7.3",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-router-dom": "^4.3.1",
     "react-youtube": "^9.0.2",
+    "sequelize": "^6.21.3",
     "yt-dlp-wrap": "^2.3.11"
   },
   "devDependencies": {

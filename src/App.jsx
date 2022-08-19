@@ -5,10 +5,11 @@ import './App.css'
 
 import NavBar from './components/NavBar'
 
-import NoteFinder from './components/note-finder'
-import TextPractice from './components/text-practice'
+import NoteFinder from './components/NoteFinder'
+import TextPractice from './components/TextPractice'
+import SentenceCollector from './components/SentenceCollector'
 
-import home from "./components/home"
+import home from "./components/Home"
 
 class App extends Component {
     render() {
@@ -20,6 +21,7 @@ class App extends Component {
                     <Route path = "/home" component = { home } />
                     <Route path = "/note-finder" component={ NoteFinder } />
                     <Route path = "/text-practice" component={ TextPractice } />
+                    <Route path = "/sentence-collector" component={ SentenceCollector } />
                 </Switch>
             </>
         )

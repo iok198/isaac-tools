@@ -3,6 +3,7 @@
 const CONSTANTS = require("../constants")
 
 const sampleData = require("../sampleData")
+const userRoute = require("./user");
 
 const YTDlpWrap = require("yt-dlp-wrap").default;
 const ffmpeg = require("fluent-ffmpeg");
@@ -10,6 +11,8 @@ const fs = require("fs");
 const path = require("path");
 
 const router = express.Router();
+
+console.log(userRoute);
 
 // MasterDetail Page Endpoint
 router.get(CONSTANTS.ENDPOINT.MASTERDETAIL, (req, res) => {
@@ -51,6 +54,5 @@ router.get("/clip", async (req, res) => {
         .outputOptions(['-movflags frag_keyframe+empty_moov'])
         .pipe(res, { end: true });
 });
-
 
 module.exports = router;
