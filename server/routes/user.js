@@ -1,6 +1,4 @@
 const express = require("express");
-const fs = require("fs");
-const path = require("path");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
@@ -11,7 +9,7 @@ const { includeUser, requireUser } = require("../middleware/auth");
 
 router.use(includeUser);
 
-router.post("signup", async (req, res) => {
+router.post("/signup", async (req, res) => {
     const username = req.body.username;
     const existingUser = await User.findOne({ where: { username } });
     if (existingUser) {
@@ -22,11 +20,11 @@ router.post("signup", async (req, res) => {
         username: username,
         password: bcrypt.hashSync(req.body.password, 8)
     });
-
+    user.password = null;
     res.json(user);
 });
 
-router.post("login", async (req, res) => {
+router.post("/login", async (req, res) => {
     const username = req.body.username;
     const errorMessage = "Incorrect username or password";
     const user = await User.findOne({ where: { username } });
@@ -49,7 +47,7 @@ router.post("login", async (req, res) => {
 });
 
 
-router.get("me", requireUser, (req, res) => {
+router.get("/me", requireUser, (req, res) => {
     res.json(req.user);
 });
 

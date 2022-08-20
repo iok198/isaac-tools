@@ -5,7 +5,6 @@ const cookieParser = require('cookie-parser')
 const logger = require('morgan')
 
 const indexRouter = require('./routes/index')
-const userRouter = require("./routes/user");
 
 const app = express()
 
@@ -20,7 +19,6 @@ db.sequelize.sync().then(() => {
     console.log('Drop and Resync Db');
 });
 
-app.use("/api/user", userRouter);
 app.use('/api', indexRouter)
 app.get('*', (req, res) => {
   res.sendFile('build/index.html', { root: __dirname })

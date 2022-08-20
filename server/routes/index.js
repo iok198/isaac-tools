@@ -12,8 +12,6 @@ const path = require("path");
 
 const router = express.Router();
 
-console.log(userRoute);
-
 // MasterDetail Page Endpoint
 router.get(CONSTANTS.ENDPOINT.MASTERDETAIL, (req, res) => {
   res.json(sampleData.textAssets)
@@ -23,6 +21,8 @@ router.get(CONSTANTS.ENDPOINT.MASTERDETAIL, (req, res) => {
 router.get(CONSTANTS.ENDPOINT.GRID, (req, res) => {
   res.json(sampleData.textAssets)
 })
+
+router.use("/user", userRoute);
 
 router.get("/clip", async (req, res) => {
     const { videoID, start, end } = req.query;

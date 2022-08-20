@@ -1,7 +1,7 @@
 const jwt = require("jsonwebtoken");
 const config = require("../config/auth.config.js");
 const db = require("../models");
-const User = db.user;
+const User = db.User;
 
 const includeUser = async (req, res, next) => {
     let token = req.cookies.token;
@@ -11,11 +11,9 @@ const includeUser = async (req, res, next) => {
         return;
     }
     const decoded = jwt.verify(token, config.secret);
-
-    const user = await User.findByPk(decoded.userID);
+    const user = await User.findByPk(decoded.id);
     req.user = user;
     next();
-
 };
 
 const requireUser = (req, res, next) => {
