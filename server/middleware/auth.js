@@ -21,7 +21,7 @@ const requireUser = (req, res, next) => {
         req.user.password = null;
         next();
     } else {
-        res.json({ status: 401, message: "Unauthorized" });
+        res.status(401).json({ message: "Unauthorized" });
     }
 };
 
