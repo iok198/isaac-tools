@@ -1,11 +1,11 @@
 @font-face {
     font-family: strokeOrder;
-    src: url("/kanji-stroke-order.ttf");
+    src: url("../../../public/kanji-stroke-order.ttf");
 }
 
 @font-face {
     font-family: regularJP;
-    src: url("/NotoSerifJP-Regular.otf");
+    src: url("../../../public/NotoSerifJP-Regular.otf");
 }
 
 .practiceText {

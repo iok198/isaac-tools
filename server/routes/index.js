@@ -4,6 +4,7 @@ const CONSTANTS = require("../constants")
 
 const sampleData = require("../sampleData")
 const userRoute = require("./user");
+const sentenceRoute = require("./sentence");
 
 const YTDlpWrap = require("yt-dlp-wrap").default;
 const ffmpeg = require("fluent-ffmpeg");
@@ -23,6 +24,7 @@ router.get(CONSTANTS.ENDPOINT.GRID, (req, res) => {
 })
 
 router.use("/user", userRoute);
+router.use("/sentence", sentenceRoute);
 
 router.get("/clip", async (req, res) => {
     const { videoID, start, end } = req.query;

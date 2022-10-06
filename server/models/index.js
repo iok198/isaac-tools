@@ -19,6 +19,22 @@ const sequelize = new Sequelize(
 const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
-db.User = require("../models/user.model.js")(sequelize, Sequelize);
+
+const User = require("../models/user.model.js")(sequelize, Sequelize);
+const Word = require("../models/word.model.js")(sequelize, Sequelize);
+const Sentence = require("../models/sentence.model.js")(sequelize, Sequelize);
+const WordSentence = require("../models/wordSentence.model.js")(sequelize, Sequelize);
+
+Sentence.belongsToMany(Word, { through: WordSentence });
+Word.belongsToMany(Sentence, { through: WordSentence });
+WordSentence.belongsTo(Word);
+WordSentence.belongsTo(Sentence);
+Word.hasMany(WordSentence);
+Sentence.hasMany(WordSentence);
+
+db.User = User;
+db.Word = Word;
+db.Sentence = Sentence;
+db.WordSentence = WordSentence;
 
 module.exports = db;

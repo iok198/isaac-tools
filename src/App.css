@@ -33,3 +33,7 @@ button:active {
   outline: none !important;
   box-shadow: none !important;
 }
+
+.cursor-pointer {
+    cursor: pointer;
+}
