@@ -11,7 +11,7 @@ export default function NavBar() {
         <a href="#mainContent">Skip to Main Content</a>
       </div>
       <nav className="navbar navbar-expand-sm navbar-light border-bottom justify-content-between">
-        <Link className="navbar-brand" to="/">
+        <Link className="navbar-brand ms-3" to="/">
           Isaac's Toolkit
         </Link>
         <div className="navbar-nav">
@@ -23,6 +23,9 @@ export default function NavBar() {
           </Link>
           <Link className="nav-item nav-link active" to="text-practice">
             text practice
+          </Link>
+          <Link className="nav-item nav-link active" to="sentence-collector">
+            sentence collector
           </Link>
         </div>
       </nav>

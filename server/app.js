@@ -14,6 +14,11 @@ app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(express.static(path.resolve(__dirname, 'build')))
 
+const db = require("./models");
+db.sequelize.sync().then(() => {
+    console.log('Drop and Resync Db');
+});
+
 app.use('/api', indexRouter)
 app.get('*', (req, res) => {
   res.sendFile('build/index.html', { root: __dirname })

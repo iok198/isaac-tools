@@ -3,6 +3,8 @@
 const CONSTANTS = require("../constants")
 
 const sampleData = require("../sampleData")
+const userRoute = require("./user");
+const sentenceRoute = require("./sentence");
 
 const YTDlpWrap = require("yt-dlp-wrap").default;
 const ffmpeg = require("fluent-ffmpeg");
@@ -20,6 +22,9 @@ router.get(CONSTANTS.ENDPOINT.MASTERDETAIL, (req, res) => {
 router.get(CONSTANTS.ENDPOINT.GRID, (req, res) => {
   res.json(sampleData.textAssets)
 })
+
+router.use("/user", userRoute);
+router.use("/sentence", sentenceRoute);
 
 router.get("/clip", async (req, res) => {
     const { videoID, start, end } = req.query;
@@ -51,6 +56,5 @@ router.get("/clip", async (req, res) => {
         .outputOptions(['-movflags frag_keyframe+empty_moov'])
         .pipe(res, { end: true });
 });
-
 
 module.exports = router;
