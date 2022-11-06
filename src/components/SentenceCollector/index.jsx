@@ -94,14 +94,15 @@ export default function Blank() {
 
     const AnalyzedSentence = () => {
         if (words.length > 0) {
-            return <ButtonGroup className="mb-3">
+            return <div className="mb-3 text-center">
                 {words.map((word, i) => 
-                    <Button 
+                    <Button
+                        className="mb-3 rounded-0" 
                         key={i} 
                         variant={wordIdMapping[word.original] ? "outline-success" : "outline-primary"} 
                         onClick={() => handleWord(word)}>{word.surface}</Button>)
                 }
-            </ButtonGroup>;
+            </div>;
         }
         return <></>;
     };

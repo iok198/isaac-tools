@@ -7,7 +7,7 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.STRING
         },
         link: {
-            type: Sequelize.STRING
+            type: Sequelize.STRING(500)
         },
         notes: {
             type: Sequelize.STRING

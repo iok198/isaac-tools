@@ -13,6 +13,7 @@ const includeUser = async (req, res, next) => {
     const decoded = jwt.verify(token, config.secret);
     const user = await User.findByPk(decoded.id);
     req.user = user;
+    req.usre.password = null;
     next();
 };
 
